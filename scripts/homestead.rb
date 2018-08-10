@@ -338,6 +338,15 @@ class Homestead
       end
     end
 
+    # Install ELKStack If Necessary
+    if settings.has_key?("ELKstack") && settings["ELKstack"]
+      config.vm.provision "shell" do |s|
+          s.name = "----- Installing ELK Stack -----"
+          s.path = scriptDir + "/install-ELKstack.sh"
+          s.args = settings["ELKstack"]
+      end
+    end
+
     # Install MariaDB If Necessary
     if settings.has_key?('mariadb') && settings['mariadb']
       config.vm.provision 'shell' do |s|
