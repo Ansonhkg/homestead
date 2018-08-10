@@ -31,13 +31,14 @@ sites:
 databases:
     - homestead
 
-      # Elasticsearch
-      - send : 9200
-      - to : 9200
+ports:
+    # Elasticsearch
+    - send : 9200
+      to : 9200
 
-      # Kibana
-      - send: 5601
-      - to: 5601
+    # Kibana
+    - send: 5601
+      to: 5601
 
 # blackfire:
 #     - id: foo
